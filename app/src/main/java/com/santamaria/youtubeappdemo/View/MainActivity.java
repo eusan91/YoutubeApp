@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
+        tabLayout.addOnTabSelectedListener(this);
     }
 
     @Override
