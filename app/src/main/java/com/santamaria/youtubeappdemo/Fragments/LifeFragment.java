@@ -1,6 +1,7 @@
 package com.santamaria.youtubeappdemo.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.santamaria.youtubeappdemo.R;
+import com.santamaria.youtubeappdemo.Services.ServiceGetPlaylistVideos;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +49,9 @@ public class LifeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Intent intent = new Intent(getContext(), ServiceGetPlaylistVideos.class);
+        getContext().startService(intent);
+
         return inflater.inflate(R.layout.fragment_life, container, false);
     }
 

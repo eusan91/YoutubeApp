@@ -15,4 +15,7 @@ public final class CONSTANT {
     //CHANNEL ID
     public static final String CHANNEL_ID = "UCxvOk1aI86ZPTM_nyecTQvg";
 
+    //PLAYLIST ID
+    public static final String PLAYLIST_ID = "LLxvOk1aI86ZPTM_nyecTQvg";
+
 }

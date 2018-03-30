@@ -22,20 +22,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true">
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHANNEL" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PLAYLIST" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LIVE" />
     </android.support.design.widget.TabLayout>
 
 </RelativeLayout>

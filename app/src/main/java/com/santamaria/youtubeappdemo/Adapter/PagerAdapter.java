@@ -24,7 +24,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-
         switch (position){
             case 0:
                 return new ChannelFragment();
@@ -32,8 +31,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return new PlaylistFragment();
             case 2:
                 return new LifeFragment();
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override

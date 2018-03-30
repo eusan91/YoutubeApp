@@ -9,11 +9,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class YoutubeApi {
 
-    public static YouTubeApiService getChannelVideos(String url){
+    public static YouTubeApiService getVideos(String url){
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(YouTubeApiService.class);
     }
+
 }

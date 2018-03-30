@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -14,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.santamaria.youtubeappdemo.Adapter.RecyclerVideosAdapter;
-import com.santamaria.youtubeappdemo.Model.YoutubeBase;
+import com.santamaria.youtubeappdemo.Adapter.RecyclerChannelVideosAdapter;
+import com.santamaria.youtubeappdemo.Model.YoutubeBaseChannel;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfo;
 import com.santamaria.youtubeappdemo.R;
 import com.santamaria.youtubeappdemo.Services.ServiceGetChannelVideos;
@@ -66,8 +65,8 @@ public class ChannelFragment extends Fragment {
     // Utility methods
     private void setChannelVideos(Parcelable parcelableArrayListExtra) {
 
-        YoutubeBase youtubeBase = (YoutubeBase)parcelableArrayListExtra;
-        channelVideosList = youtubeBase.getItems();
+        YoutubeBaseChannel youtubeBaseChannel = (YoutubeBaseChannel)parcelableArrayListExtra;
+        channelVideosList = youtubeBaseChannel.getItems();
 
         loadRecyclerView();
     }
@@ -76,7 +75,7 @@ public class ChannelFragment extends Fragment {
     private void loadRecyclerView() {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        RecyclerVideosAdapter adapter = new RecyclerVideosAdapter(channelVideosList, R.layout.youtube_video_item);
+        RecyclerChannelVideosAdapter adapter = new RecyclerChannelVideosAdapter(channelVideosList, R.layout.youtube_video_item);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

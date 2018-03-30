@@ -9,11 +9,11 @@ import java.util.ArrayList;
  * Created by Santamaria on 29/03/2018.
  */
 
-public class YoutubeBase implements Parcelable{
+public class YoutubeBaseChannel implements Parcelable{
 
     ArrayList<YoutubeInfo> items;
 
-    public YoutubeBase(ArrayList<YoutubeInfo> items) {
+    public YoutubeBaseChannel(ArrayList<YoutubeInfo> items) {
         this.items = items;
     }
 
@@ -25,19 +25,19 @@ public class YoutubeBase implements Parcelable{
         this.items = items;
     }
 
-    protected YoutubeBase(Parcel in) {
+    protected YoutubeBaseChannel(Parcel in) {
         items = in.createTypedArrayList(YoutubeInfo.CREATOR);
     }
 
-    public static final Creator<YoutubeBase> CREATOR = new Creator<YoutubeBase>() {
+    public static final Creator<YoutubeBaseChannel> CREATOR = new Creator<YoutubeBaseChannel>() {
         @Override
-        public YoutubeBase createFromParcel(Parcel in) {
-            return new YoutubeBase(in);
+        public YoutubeBaseChannel createFromParcel(Parcel in) {
+            return new YoutubeBaseChannel(in);
         }
 
         @Override
-        public YoutubeBase[] newArray(int size) {
-            return new YoutubeBase[size];
+        public YoutubeBaseChannel[] newArray(int size) {
+            return new YoutubeBaseChannel[size];
         }
     };
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.santamaria.youtubeappdemo.Model.YoutubeInfo;
+import com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist;
 import com.santamaria.youtubeappdemo.R;
 import com.squareup.picasso.Picasso;
 
@@ -17,13 +17,13 @@ import java.util.ArrayList;
  * Created by Santamaria on 29/03/2018.
  */
 
-public class RecyclerVideosAdapter extends RecyclerView.Adapter<RecyclerVideosAdapter.ViewHolder> {
+public class RecyclerPlaylistVideosAdapter extends RecyclerView.Adapter<RecyclerPlaylistVideosAdapter.ViewHolder> {
 
-    private ArrayList<YoutubeInfo> channelVideosList;
+    private ArrayList<YoutubeInfoPlaylist> playlistVideosList;
     private int layout;
 
-    public RecyclerVideosAdapter(ArrayList<YoutubeInfo> channelVideosList, int layout) {
-        this.channelVideosList = channelVideosList;
+    public RecyclerPlaylistVideosAdapter(ArrayList<YoutubeInfoPlaylist> playlistVideosList, int layout) {
+        this.playlistVideosList = playlistVideosList;
         this.layout = layout;
     }
 
@@ -36,26 +36,19 @@ public class RecyclerVideosAdapter extends RecyclerView.Adapter<RecyclerVideosAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        YoutubeInfo youtubeInfo = channelVideosList.get(position);
+        YoutubeInfoPlaylist youtubeInfo = playlistVideosList.get(position);
         holder.textViewTitle.setText(youtubeInfo.getSnippet().getTitle());
         holder.textViewDes.setText(youtubeInfo.getSnippet().getDescription());
         holder.textViewDate.setText(youtubeInfo.getSnippet().getPublishetAt());
 
-        Picasso.with(holder.textViewDate.getContext()).load(youtubeInfo.getSnippet().getThumbnails().getHigh().getUrl()).into(holder.ImageThumb);
+        if (youtubeInfo.getSnippet().getThumbnails() !=null)
+            Picasso.with(holder.textViewDate.getContext()).load(youtubeInfo.getSnippet().getThumbnails().getHigh().getUrl()).into(holder.ImageThumb);
 
     }
 
     @Override
     public int getItemCount() {
-
-        if (channelVideosList == null){
-            return 0;
-        } else if (channelVideosList.size() > 0){
-            return channelVideosList.size()-1;
-        } else {
-            return 0;
-        }
-
+        return playlistVideosList == null ? 0 : playlistVideosList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
