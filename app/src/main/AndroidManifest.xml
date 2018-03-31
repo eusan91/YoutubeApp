@@ -23,6 +23,7 @@
 
         <service android:name=".Services.ServiceGetChannelVideos"/>
         <service android:name=".Services.ServiceGetPlaylistVideos"/>
+        <service android:name=".Services.ServiceGetLivelistVideos"/>
 
     </application>
 

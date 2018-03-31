@@ -26,4 +26,18 @@ public interface YouTubeApiService {
                                                  @Query("maxResults") String maxResults,
                                                  @Query("key") String key);
 
+    @GET("youtube/v3/search")
+    Call<YoutubeBaseChannel> listLiveVideos(@Query("part") String part,
+                                                 @Query("channelId") String channelId,
+                                                 @Query("eventType") String eventType,
+                                             @Query("type") String type,
+                                                 @Query("key") String key);
+
+
+    /*
+    @GET("youtube/v3/liveBroadcasts")
+    Call<YoutubeBasePlaylist> listLiveVideos(@Query("broadcastStatus") String broadcastStatus,
+                                                 @Query("maxResults") String maxResults,
+                                                 @Query("part") String part,
+                                                 @Query("key") String key);*/
 }
