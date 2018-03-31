@@ -21,10 +21,11 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Services.ServiceGetChannelVideos"/>
-        <service android:name=".Services.ServiceGetPlaylistVideos"/>
-        <service android:name=".Services.ServiceGetLivelistVideos"/>
+        <service android:name=".Services.ServiceGetChannelVideos" />
+        <service android:name=".Services.ServiceGetPlaylistVideos" />
+        <service android:name=".Services.ServiceGetLivelistVideos" />
 
+        <activity android:name=".View.YoutubePlayer"></activity>
     </application>
 
 </manifest>

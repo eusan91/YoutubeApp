@@ -14,13 +14,15 @@ public class YoutubeInfo_Snippet implements Parcelable {
     private String title;
     private String description;
     private YoutubeInfo_Snippet_Thumbnail thumbnails;
+    private YoutubeInfoPlaylist_Snippet_ResourceId resourceId;
 
-    public YoutubeInfo_Snippet(String publishetAt, String channelId, String title, String description, YoutubeInfo_Snippet_Thumbnail thumbnails) {
+    public YoutubeInfo_Snippet(String publishetAt, String channelId, String title, String description, YoutubeInfo_Snippet_Thumbnail thumbnails, YoutubeInfoPlaylist_Snippet_ResourceId resourceId) {
         this.publishetAt = publishetAt;
         this.channelId = channelId;
         this.title = title;
         this.description = description;
         this.thumbnails = thumbnails;
+        this.resourceId = resourceId;
     }
 
     protected YoutubeInfo_Snippet(Parcel in) {
@@ -29,6 +31,7 @@ public class YoutubeInfo_Snippet implements Parcelable {
         title = in.readString();
         description = in.readString();
         thumbnails = in.readParcelable(YoutubeInfo_Snippet_Thumbnail.class.getClassLoader());
+        resourceId = in.readParcelable(YoutubeInfoPlaylist_Snippet_ResourceId.class.getClassLoader());
     }
 
     public static final Creator<YoutubeInfo_Snippet> CREATOR = new Creator<YoutubeInfo_Snippet>() {
@@ -82,6 +85,14 @@ public class YoutubeInfo_Snippet implements Parcelable {
         this.thumbnails = thumbnails;
     }
 
+    public YoutubeInfoPlaylist_Snippet_ResourceId getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(YoutubeInfoPlaylist_Snippet_ResourceId resourceId) {
+        this.resourceId = resourceId;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -94,5 +105,6 @@ public class YoutubeInfo_Snippet implements Parcelable {
         dest.writeString(title);
         dest.writeString(description);
         dest.writeParcelable(thumbnails, flags);
+        dest.writeParcelable(resourceId, flags);
     }
 }

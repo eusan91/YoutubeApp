@@ -1,5 +1,7 @@
 package com.santamaria.youtubeappdemo.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfo;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist;
 import com.santamaria.youtubeappdemo.R;
+import com.santamaria.youtubeappdemo.View.YoutubePlayer;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -72,6 +75,17 @@ public class RecyclerChannelVideosAdapter extends RecyclerView.Adapter<RecyclerC
             this.textViewDes = itemView.findViewById(R.id.textViewDes);
             this.textViewDate = itemView.findViewById(R.id.textViewDate);
             this.ImageThumb = itemView.findViewById(R.id.ImageThumb);
+
+            this.ImageThumb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
+
+                    Intent intent = new Intent(context, YoutubePlayer.class);
+                    intent.putExtra(YoutubePlayer.PARCELABLE_VIDEO_KEY, channelVideosList.get(getAdapterPosition()));
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }
