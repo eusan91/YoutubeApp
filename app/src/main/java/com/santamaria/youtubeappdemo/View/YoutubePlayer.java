@@ -1,65 +1,68 @@
 package com.santamaria.youtubeappdemo.View;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfo;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist;
 import com.santamaria.youtubeappdemo.R;
+import com.santamaria.youtubeappdemo.ViewModel.YoutubePlayerViewModel;
+import com.santamaria.youtubeappdemo.databinding.ActivityYoutubePlayerBinding;
 
 import static com.santamaria.youtubeappdemo.CONSTANT.GOOGLE_YOUTUBE_API_KEY;
 
 public class YoutubePlayer extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     public static final String PARCELABLE_VIDEO_KEY = "PARCELABLE_VIDEO_KEY";
-    private TextView textViewName;
-    private TextView textViewDate;
-    private YouTubePlayerView mYoutubePlayerView = null;
-    private YouTubePlayer mYoutubePlayer = null;
-    private String videoId = "";
+    //private String videoId = "";
+
+    ActivityYoutubePlayerBinding binding;
+    YoutubePlayerViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_youtube_player);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_youtube_player);
+        viewModel = new YoutubePlayerViewModel();
 
-        initViews();
+        binding.setViewModel(viewModel);
 
-        Bundle bundle = getIntent().getExtras();
-        
+        initYoutubePlayer();
+
+        setYoutubeInfo(getIntent().getExtras());
+
+    }
+
+    private void setYoutubeInfo(Bundle bundle) {
+
         if (bundle != null){
-            
+
             Parcelable parcelable = bundle.getParcelable(PARCELABLE_VIDEO_KEY);
 
             if (parcelable instanceof YoutubeInfo){
                 YoutubeInfo youtubeBaseChannel = (YoutubeInfo)parcelable;
 
-                textViewName.setText(youtubeBaseChannel.getSnippet().getTitle());
-                textViewDate.setText(youtubeBaseChannel.getSnippet().getPublishetAt());
-                videoId = youtubeBaseChannel.getId().getVideoId();
+                viewModel.title.set(youtubeBaseChannel.getSnippet().getTitle());
+                viewModel.date.set(youtubeBaseChannel.getSnippet().getPublishetAt());
+                viewModel.setVideoId(youtubeBaseChannel.getId().getVideoId());
 
             } else {
                 YoutubeInfoPlaylist youtubeBasePlaylist = (YoutubeInfoPlaylist)parcelable;
 
-                textViewName.setText(youtubeBasePlaylist.getSnippet().getTitle());
-                textViewDate.setText(youtubeBasePlaylist.getSnippet().getPublishetAt());
-                videoId = youtubeBasePlaylist.getSnippet().getResourceId().getVideoId();
+                viewModel.title.set(youtubeBasePlaylist.getSnippet().getTitle());
+                viewModel.date.set(youtubeBasePlaylist.getSnippet().getPublishetAt());
+
+                viewModel.setVideoId(youtubeBasePlaylist.getSnippet().getResourceId().getVideoId());
             }
         }
     }
 
-    private void initViews() {
-
-        mYoutubePlayerView = findViewById(R.id.youtube_player);
-        mYoutubePlayerView.initialize(GOOGLE_YOUTUBE_API_KEY, this);
-        textViewName = findViewById(R.id.textViewName);
-        textViewDate = findViewById(R.id.textViewDate);
-
+    private void initYoutubePlayer() {
+        binding.youtubePlayer.initialize(GOOGLE_YOUTUBE_API_KEY, this);
     }
 
     @Override
@@ -68,9 +71,8 @@ public class YoutubePlayer extends YouTubeBaseActivity implements YouTubePlayer.
         youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
         youTubePlayer.setPlaybackEventListener(playbackEventListener);
         if (!wasRestored) {
-            youTubePlayer.cueVideo(videoId);
+            youTubePlayer.cueVideo(viewModel.getVideoId());
         }
-        mYoutubePlayer = youTubePlayer;
 
     }
 
@@ -78,7 +80,6 @@ public class YoutubePlayer extends YouTubeBaseActivity implements YouTubePlayer.
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
 
     }
-
 
     ///---------------------
 

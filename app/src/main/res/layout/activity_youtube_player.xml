@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.santamaria.youtubeappdemo.View.YoutubePlayer">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_player"
-        android:layout_height="@dimen/youtube_player_view_height"
-        android:layout_width="match_parent"/>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.santamaria.youtubeappdemo.ViewModel.YoutubePlayerViewModel"/>
+    </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/linear_layout_height"
-        android:id="@+id/title_layout"
-        android:layout_below="@+id/youtube_player"
-        android:background="@color/colorYoutubeNameBackground"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        tools:context="com.santamaria.youtubeappdemo.View.YoutubePlayer">
 
-        <TextView
-            android:id="@+id/textViewName"
-            android:layout_width="@dimen/text_view_name_width"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_view_name_margin_left"
-            android:layout_marginTop="@dimen/text_view_name_margin_top"
-            android:layout_marginBottom="@dimen/text_view_name_margin_bottom"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/common_black_50"
-            android:textSize="@dimen/text_view_name_text_size"
-            android:layout_marginStart="@dimen/text_view_name_margin_left" />
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtube_player"
+            android:layout_height="@dimen/youtube_player_view_height"
+            android:layout_width="match_parent"/>
 
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginLeft="@dimen/text_view_date_margin_left"
-            android:layout_marginRight="@dimen/text_view_date_margin_right"
-            android:maxLines="1"
-            android:textColor="@color/common_gray_txt"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/text_view_date_text_size"
-            android:layout_marginEnd="@dimen/text_view_date_margin_right"
-            android:layout_marginStart="@dimen/text_view_date_margin_left" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/linear_layout_height"
+            android:id="@+id/title_layout"
+            android:layout_below="@+id/youtube_player"
+            android:background="@color/colorYoutubeNameBackground"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="@dimen/text_view_name_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_view_name_margin_left"
+                android:layout_marginTop="@dimen/text_view_name_margin_top"
+                android:layout_marginBottom="@dimen/text_view_name_margin_bottom"
+                android:maxLines="2"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/common_black_50"
+                android:textSize="@dimen/text_view_name_text_size"
+                android:text="@{viewModel.title}"
+                android:layout_marginStart="@dimen/text_view_name_margin_left" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/text_view_date_margin_left"
+                android:layout_marginRight="@dimen/text_view_date_margin_right"
+                android:maxLines="1"
+                android:textColor="@color/common_black_50"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/text_view_date_text_size"
+                android:layout_marginEnd="@dimen/text_view_date_margin_right"
+                android:layout_marginStart="@dimen/text_view_date_margin_left"
+                android:text="@{viewModel.date}"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
