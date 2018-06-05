@@ -3,11 +3,11 @@
 Sample Demo for testing the Youtube APi.
 - Currently not uploaded in Play Store.
 
-Includes:
-  MVVM
-  Youtube API
-  Retrofit
-  Fragments
-  Services & BroadcastReceivers
-  dimensions
-  Parcelables
+Includes:<br>
+  <br> MVVM
+  <br> Youtube API
+  <br> Retrofit
+  <br> Fragments
+  <br> Services & BroadcastReceivers
+  <br> Dimensions
+  <br> Parcelables
