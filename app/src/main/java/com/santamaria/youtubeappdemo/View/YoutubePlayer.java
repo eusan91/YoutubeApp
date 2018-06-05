@@ -1,16 +1,13 @@
 package com.santamaria.youtubeappdemo.View;
 
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.santamaria.youtubeappdemo.Model.YoutubeBaseChannel;
-import com.santamaria.youtubeappdemo.Model.YoutubeBasePlaylist;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfo;
 import com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist;
 import com.santamaria.youtubeappdemo.R;
