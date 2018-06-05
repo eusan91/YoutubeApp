@@ -25,7 +25,7 @@
         <service android:name=".Services.ServiceGetPlaylistVideos" />
         <service android:name=".Services.ServiceGetLivelistVideos" />
 
-        <activity android:name=".View.YoutubePlayer"></activity>
+        <activity android:name=".View.YoutubePlayer" />
     </application>
 
 </manifest>

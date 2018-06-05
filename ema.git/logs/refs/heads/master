@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 70e7caa9961f7d3cd6cb7433ebe085a5f62f1b41 ema <eusan91@hotmail.com> 1522205559 -0600	commit (initial): initial commit
+70e7caa9961f7d3cd6cb7433ebe085a5f62f1b41 dd0d6410da7a2b05aa11aed9cad8608119590d79 ema <eusan91@hotmail.com> 1522210992 -0600	commit: tab layout created
+dd0d6410da7a2b05aa11aed9cad8608119590d79 340e7ae89b178855eee1e5368c4609e96a9c7dde ema <eusan91@hotmail.com> 1522297637 -0600	commit: removing no needed code
+340e7ae89b178855eee1e5368c4609e96a9c7dde 22aa6b960b9e1f6a707d2f406a57bc8d633d821d ema <eusan91@hotmail.com> 1522376563 -0600	commit: displaying CHANNEL items
+22aa6b960b9e1f6a707d2f406a57bc8d633d821d 723636b612957501915114ad1cf55edf539bae07 ema <eusan91@hotmail.com> 1522381650 -0600	commit: displaying PLAYLIST items
+723636b612957501915114ad1cf55edf539bae07 241ae17addc41fd530fe2066b48148d9073fae4f ema <eusan91@hotmail.com> 1522457979 -0600	commit: Live working
+241ae17addc41fd530fe2066b48148d9073fae4f ef8c7669d898fd4b2f34b89f1f83ae3f20b0a313 ema <eusan91@hotmail.com> 1522463844 -0600	commit: demo ready missing read about live

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- activity youtube player -->
+
+    <dimen name="youtube_player_view_height">170dp</dimen>
+    <dimen name="linear_layout_height">130dp</dimen>
+
+    <dimen name="text_view_name_width">300dp</dimen>
+    <dimen name="text_view_name_margin_left">10dp</dimen>
+    <dimen name="text_view_name_margin_top">20dp</dimen>
+    <dimen name="text_view_name_margin_bottom">5dp</dimen>
+    <dimen name="text_view_name_text_size">20sp</dimen>
+
+    <dimen name="text_view_date_margin_left">10dp</dimen>
+    <dimen name="text_view_date_margin_right">20dp</dimen>
+    <dimen name="text_view_date_text_size">16sp</dimen>
+
+</resources>

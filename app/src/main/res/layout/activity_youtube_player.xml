@@ -7,42 +7,40 @@
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_player"
-        android:layout_height="170dp"
+        android:layout_height="@dimen/youtube_player_view_height"
         android:layout_width="match_parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="@dimen/linear_layout_height"
         android:id="@+id/title_layout"
         android:layout_below="@+id/youtube_player"
-        android:background="#e4e4e4"
+        android:background="@color/colorYoutubeNameBackground"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewName"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/text_view_name_width"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="@dimen/text_view_name_margin_left"
+            android:layout_marginTop="@dimen/text_view_name_margin_top"
+            android:layout_marginBottom="@dimen/text_view_name_margin_bottom"
             android:maxLines="2"
-            android:text="Android Name sjdnjas ajsk djak sjdka kaskdjaksdj kjskdjaksj"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/common_black_50"
-            android:textSize="20dp" />
+            android:textSize="@dimen/text_view_name_text_size" />
 
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="@dimen/text_view_date_margin_left"
+            android:layout_marginRight="@dimen/text_view_date_margin_right"
             android:maxLines="1"
             android:textColor="@color/common_gray_txt"
-            android:text="Android Name sjdnjas ajskdjaksjdka kaskdjaksdj kjskdjaksj"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="16dp" />
+            android:textSize="@dimen/text_view_date_text_size" />
 
     </LinearLayout>
 
