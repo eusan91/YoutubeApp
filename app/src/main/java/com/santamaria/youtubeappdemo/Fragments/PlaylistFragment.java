@@ -71,7 +71,7 @@ public class PlaylistFragment extends Fragment {
     private void loadRecyclerView() {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        RecyclerPlaylistVideosAdapter adapter = new RecyclerPlaylistVideosAdapter(playListVideosList, R.layout.youtube_video_item);
+        RecyclerPlaylistVideosAdapter adapter = new RecyclerPlaylistVideosAdapter(playListVideosList, R.layout.youtube_playlist_video_item);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

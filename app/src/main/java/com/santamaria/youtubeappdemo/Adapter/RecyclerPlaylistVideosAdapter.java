@@ -2,16 +2,15 @@ package com.santamaria.youtubeappdemo.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist;
-import com.santamaria.youtubeappdemo.R;
 import com.santamaria.youtubeappdemo.View.YoutubePlayer;
+import com.santamaria.youtubeappdemo.databinding.YoutubePlaylistVideoItemBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -38,15 +37,7 @@ public class RecyclerPlaylistVideosAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        YoutubeInfoPlaylist youtubeInfo = playlistVideosList.get(position);
-        holder.textViewTitle.setText(youtubeInfo.getSnippet().getTitle());
-        holder.textViewDes.setText(youtubeInfo.getSnippet().getDescription());
-        holder.textViewDate.setText(youtubeInfo.getSnippet().getPublishetAt());
-
-        if (youtubeInfo.getSnippet().getThumbnails() !=null)
-            Picasso.with(holder.textViewDate.getContext()).load(youtubeInfo.getSnippet().getThumbnails().getHigh().getUrl()).into(holder.ImageThumb);
-
+        holder.bind(playlistVideosList.get(position));
     }
 
     @Override
@@ -56,20 +47,19 @@ public class RecyclerPlaylistVideosAdapter extends RecyclerView.Adapter<Recycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewTitle;
-        TextView textViewDes;
-        TextView textViewDate;
-        ImageView ImageThumb;
+        YoutubePlaylistVideoItemBinding binder;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.textViewTitle = itemView.findViewById(R.id.textViewTitle);
-            this.textViewDes = itemView.findViewById(R.id.textViewDes);
-            this.textViewDate = itemView.findViewById(R.id.textViewDate);
-            this.ImageThumb = itemView.findViewById(R.id.ImageThumb);
+            binder = DataBindingUtil.bind(itemView);
 
+        }
 
-            this.ImageThumb.setOnClickListener(new View.OnClickListener() {
+        void bind(YoutubeInfoPlaylist youtubeInfoPlaylist){
+
+            binder.setYoutubeInfoPlaylist(youtubeInfoPlaylist);
+            Picasso.get().load(youtubeInfoPlaylist.getSnippet().getThumbnails().getHigh().getUrl()).into(binder.ImageThumb);
+            binder.ImageThumb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();

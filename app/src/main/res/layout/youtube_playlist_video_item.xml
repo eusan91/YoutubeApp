@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <import type="android.view.View"/>
 
         <variable
-            name="youtubeInfo"
-            type="com.santamaria.youtubeappdemo.Model.YoutubeInfo"/>
+            name="youtubeInfoPlaylist"
+            type="com.santamaria.youtubeappdemo.Model.YoutubeInfoPlaylist"/>
+
     </data>
 
     <LinearLayout
@@ -19,22 +20,21 @@
             android:layout_height="@dimen/relative_parent_height">
 
             <ImageView
-                android:id="@+id/idImageThumb"
+                android:id="@+id/ImageThumb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:id="@+id/idTextViewDate"
+                android:id="@+id/textViewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_view_item_date_text_size"
                 android:layout_alignParentRight="true"
                 android:singleLine="true"
                 android:layout_margin="@dimen/text_view_item_margin"
-                android:textColor="@android:color/white"
-                android:text="@{youtubeInfo.getSnippet().getPublishetAt()}"
-                android:layout_alignParentEnd="true" />
+                android:text="@{youtubeInfoPlaylist.getSnippet().getPublishetAt()}"
+                android:textColor="@android:color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,16 +49,16 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_view_item_title_text_size"
                     android:singleLine="true"
-                    android:text="@{youtubeInfo.getSnippet().getTitle()}"
+                    android:text="@{youtubeInfoPlaylist.getSnippet().getTitle()}"
                     android:textColor="@android:color/white" />
 
                 <TextView
-                    android:id="@+id/idTextViewDes"
+                    android:id="@+id/textViewDes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_view_item_description_text_size"
                     android:singleLine="true"
-                    android:text="@{youtubeInfo.getSnippet().getDescription()}"
+                    android:text="@{youtubeInfoPlaylist.getSnippet().getDescription()}"
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
